@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Authentication Routes...
+$this->get('login', 'Auth\AuthController@showLoginForm');
+$this->post('login', 'Auth\AuthController@login');
+$this->get('logout', 'Auth\AuthController@logout');
+
+// Registration Routes...
+$this->get('register', 'Auth\AuthController@showRegistrationForm');
+$this->post('register', 'Auth\AuthController@register');
+
+Route::get('/chat', 'ChatController@index');
