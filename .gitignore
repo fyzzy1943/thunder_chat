@@ -26,8 +26,8 @@
 /vendor/webmozart/
 /vendor/autoload.php
 
-#/vendor/
 !/vendor/laravel/
+#/vendor/
 
 /node_modules
 /public/storage
