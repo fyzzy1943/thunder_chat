@@ -1,33 +1,6 @@
-/vendor/bin/
-/vendor/classpreloader/
-/vendor/composer/
-/vendor/dnoegel/
-/vendor/doctrine/
-/vendor/fzaninotto/
-/vendor/hamcrest/
-/vendor/jakub-onderka/
-/vendor/jeremeamia/
-/vendor/league/
-/vendor/mockery/
-/vendor/monolog/
-/vendor/mtdowling/
-/vendor/nesbot/
-/vendor/nikic/
-/vendor/paragonie/
-/vendor/phpdocumentor/
-/vendor/phpspec/
-/vendor/phpunit/
-/vendor/psr/
-/vendor/psy/
-/vendor/sebastian/
-/vendor/swiftmailer/
-/vendor/symfony/
-/vendor/vlucas/
-/vendor/webmozart/
-/vendor/autoload.php
 
-!/vendor/laravel/
-#/vendor/
+vendor/*
+!vendor/laravel
 
 /node_modules
 /public/storage
@@ -35,5 +8,5 @@ Homestead.yaml
 Homestead.json
 .env
 
-/.idea/
+.idea/
 _ide_helper.php
