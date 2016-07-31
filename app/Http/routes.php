@@ -25,3 +25,6 @@ $this->get('register', 'Auth\AuthController@showRegistrationForm');
 $this->post('register', 'Auth\AuthController@register');
 
 Route::get('/chat', 'ChatController@index');
+
+Route::get('/flush', 'ChatController@flush');
+Route::post('/say', 'ChatController@say');

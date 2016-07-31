@@ -143,13 +143,13 @@ trait AuthenticatesUsers
     protected function getFailedLoginMessage($code)
     {
         $message = [
+            Lang::get('auth.102'),
             Lang::has('auth.failed')
                 ? Lang::get('auth.failed')
                 : 'These credentials do not match our records.',
-            Lang::get('auth.102'),
         ];
 
-        return $message[$code];
+        return $message[$code-1];
     }
 
     /**

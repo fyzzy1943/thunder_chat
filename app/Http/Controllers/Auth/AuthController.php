@@ -30,6 +30,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/chat';
 
+    protected $redirectAfterLogout = '/';
+
     /**
      * Create a new authentication controller instance.
      *
