@@ -27,8 +27,7 @@ class ChatController extends Controller
         header('Content-Type: text/event-stream');
         header('X-Accel-Buffering: no');
         while(true) {
-            $message = Redis::get('message');
-            if($message == '') {
+            if(Redis::get('isNew') == 'false') {
                 continue;
             }
 
@@ -36,13 +35,13 @@ class ChatController extends Controller
                 'id' => Redis::get('uid'),
                 'name' => Redis::get('name'),
                 'timestamp' => time(),
-                'message'=>$message,
+                'message'=>Redis::get('message'),
             );
 
             echo 'data:' . json_encode($d) . PHP_EOL . PHP_EOL;
             @ob_flush(); @flush();
 
-            Redis::set('message', '');
+            Redis::set('isNew', 'false');
             usleep('500');
         }
     }
@@ -52,5 +51,6 @@ class ChatController extends Controller
         Redis::set('message', $request->get('message'));
         Redis::set('name', Auth::user()->name);
         Redis::set('uid', Auth::user()->id);
+        Redis::set('isNew', 'true');
     }
 }
