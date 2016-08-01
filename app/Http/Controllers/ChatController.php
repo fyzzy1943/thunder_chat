@@ -33,8 +33,8 @@ class ChatController extends Controller
             }
 
             $d = array(
-                'id' => Auth::user()->id,
-                'name' => Auth::user()->name,
+                'id' => Redis::get('uid'),
+                'name' => Redis::get('name'),
                 'timestamp' => time(),
                 'message'=>$message,
             );
@@ -50,5 +50,7 @@ class ChatController extends Controller
     public function say(Request $request)
     {
         Redis::set('message', $request->get('message'));
+        Redis::set('name', Auth::user()->name);
+        Redis::set('uid', Auth::user()->id);
     }
 }
